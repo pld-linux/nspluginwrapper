@@ -3,13 +3,13 @@
 Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
 Summary(pl):	Wtyczka Open Source dla kompatybilno¶ci z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
-Version:	0.9.90.1
+Version:	0.9.91.2
 Release:	0.1
 License:	GPL v2
 Group:		Applications/Multimedia
-Source0:	http://www.gibix.net/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	34021feaf1a2ddbf718b20d9d1376c6e
-URL:		http://www.gibix.net/dokuwiki/en:projects:nspluginwrapper
+Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
+# Source0-md5:	74e40fa501ded6f1670684b3e42464c7
+URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
 BuildRequires:	gtk+2-devel
 #Requires:	qemu
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
