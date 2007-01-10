@@ -4,7 +4,7 @@ Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
 Summary(pl):	Wtyczka Open Source dla kompatybilno¶ci z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
 Version:	0.9.91.2
-Release:	0.7
+Release:	0.11
 License:	GPL v2
 Group:		Applications/Multimedia
 Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
@@ -13,7 +13,7 @@ Patch0:		%{name}-plugindirs.patch
 URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
 BuildRequires:	/usr/lib/libsupc++.a
 BuildRequires:	gtk+2-devel
-BuildRequires:	rpmbuild(macros) >= 1.357
+BuildRequires:	rpmbuild(macros) >= 1.363
 Requires:	browser-plugins >= 2.0
 Requires:	linux32
 #Requires:	qemu
@@ -44,12 +44,13 @@ Flash z przegl±darkami Mozilla zbudowanymi na architekturê x86-64.
 %install
 rm -rf $RPM_BUILD_ROOT
 
+# we pretend we're browser for x86 ;)
+install -d $RPM_BUILD_ROOT%{_prefix}/lib/%{name}/plugins
+%browser_plugins_add_browser %{name} -p %{_prefix}/lib/%{name}/plugins -a i386
+
 %{__make} install \
 	DONT_STRIP=yes \
 	DESTDIR=$RPM_BUILD_ROOT
-
-install -d $RPM_BUILD_ROOT%{_browserpluginsdir}
-ln -s %{_prefix}/lib/%{name}/%{_arch}/%{_os}/npwrapper.so $RPM_BUILD_ROOT%{_browserpluginsdir}/npwrapper.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -73,7 +74,6 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog NEWS README TODO
-%attr(755,root,root) %{_browserpluginsdir}/npwrapper.so
 %attr(755,root,root) %{_bindir}/nspluginwrapper
 %dir %{_prefix}/lib/nspluginwrapper
 %dir %{_prefix}/lib/nspluginwrapper/i386
@@ -88,3 +88,8 @@ fi
 %dir %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/linux
 %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/linux/npconfig
 %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/linux/npwrapper.so
+
+# you should put plugins here you want to be automatically used in 64bit browsers
+%dir %{_prefix}/lib/%{name}/plugins
+%{_browserpluginsconfdir}/browsers.d/%{name}.*
+%config(noreplace) %verify(not md5 mtime size) %{_browserpluginsconfdir}/blacklist.d/%{name}.*.blacklist
