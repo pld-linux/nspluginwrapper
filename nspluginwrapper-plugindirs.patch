@@ -6,7 +6,7 @@
  	}
 +	else if (access("/etc/pld-release", F_OK) == 0) {
 +	  static const char *pld_dirs[] = {
-+		"/usr/lib/browser-plugins",
++		LIBDIR "/browser-plugins",
 +	  };
 +	  dirs = pld_dirs;
 +	}
