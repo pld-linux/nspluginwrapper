@@ -6,7 +6,7 @@
  	}
 +	else if (access("/etc/pld-release", F_OK) == 0) {
 +	  static const char *pld_dirs[] = {
-+		LIBDIR "/browser-plugins",
++		"/usr/lib/browser-plugins",
 +	  };
 +	  dirs = pld_dirs;
 +	}
@@ -26,7 +26,7 @@
  	"/usr/lib32/nsbrowser/plugins",				// XXX how unfortunate
  	"/usr/lib64/nsbrowser/plugins",
 +#else
-+	"/usr/lib/browser-plugins",
++	"/usr/lib/nspluginwrapper/plugins",
 +#endif
  #if defined(__FreeBSD__)
  	"/usr/X11R6/lib/browser_plugins",
