@@ -13,7 +13,7 @@ Patch0:		%{name}-plugindirs.patch
 URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
 BuildRequires:	/usr/lib/libsupc++.a
 BuildRequires:	gtk+2-devel
-BuildRequires:	rpmbuild(macros) >= 1.364
+BuildRequires:	rpmbuild(macros) >= 1.365
 Requires:	browser-plugins >= 2.0
 Requires:	linux32
 ExclusiveArch:	%{x8664}
