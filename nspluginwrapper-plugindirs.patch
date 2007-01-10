@@ -1,0 +1,33 @@
+--- nspluginwrapper-0.9.91.2/src/npw-config.c~	2006-12-23 10:38:53.000000000 +0200
++++ nspluginwrapper-0.9.91.2/src/npw-config.c	2007-01-10 02:37:24.000000000 +0200
+@@ -154,6 +154,12 @@
+ 	  };
+ 	  dirs = gentoo_dirs;
+ 	}
++	else if (access("/etc/pld-release", F_OK) == 0) {
++	  static const char *pld_dirs[] = {
++		LIBDIR "/browser-plugins",
++	  };
++	  dirs = pld_dirs;
++	}
+ #endif
+ 
+ 	if (dirs) {
+@@ -185,6 +191,7 @@
+ static const char **get_mozilla_plugin_dirs(void)
+ {
+   static const char *default_dirs[] = {
++#if 0
+ 	"/usr/lib/mozilla/plugins",
+ 	"/usr/lib32/mozilla/plugins",				// XXX how unfortunate
+ 	"/usr/lib64/mozilla/plugins",
+@@ -199,6 +206,9 @@
+ 	"/usr/lib/nsbrowser/plugins",
+ 	"/usr/lib32/nsbrowser/plugins",				// XXX how unfortunate
+ 	"/usr/lib64/nsbrowser/plugins",
++#else
++	"/usr/lib/browser-plugins",
++#endif
+ #if defined(__FreeBSD__)
+ 	"/usr/X11R6/lib/browser_plugins",
+ 	"/usr/X11R6/lib/firefox/plugins",
