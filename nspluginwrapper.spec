@@ -4,18 +4,18 @@ Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
 Summary(pl):	Wtyczka Open Source dla kompatybilno¶ci z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
 Version:	0.9.91.2
-Release:	0.2
+Release:	0.3
 License:	GPL v2
 Group:		Applications/Multimedia
 Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	74e40fa501ded6f1670684b3e42464c7
 URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
 BuildRequires:	/usr/lib/libsupc++.a
+BuildRequires:	gtk+2-devel
 BuildRequires:	rpmbuild(macros) >= 1.357
 Requires:	browser-plugins >= 2.0
-BuildRequires:	gtk+2-devel
-#Requires:	qemu
 Requires:	linux32
+#Requires:	qemu
 ExclusiveArch:	%{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -35,7 +35,8 @@ Flash z przegl±darkami Mozilla zbudowanymi na architekturê x86-64.
 %setup -q
 
 %build
-%configure
+%configure \
+	--with-biarch
 %{__make}
 
 %install
@@ -45,7 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 	DONT_STRIP=yes \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mkdir -p $RPM_BUILD_ROOT%{_browserpluginsdir}
+install -d $RPM_BUILD_ROOT%{_browserpluginsdir}
 ln -s %{_prefix}/lib/%{name}/%{_arch}/%{_os}/npwrapper.so $RPM_BUILD_ROOT%{_browserpluginsdir}/npwrapper.so
 
 %clean
@@ -69,6 +70,7 @@ fi
 %defattr(644,root,root,755)
 %doc ChangeLog NEWS README TODO
 %attr(755,root,root) %{_browserpluginsdir}/npwrapper.so
+%attr(755,root,root) %{_bindir}/nspluginwrapper
 %dir %{_prefix}/lib/nspluginwrapper
 %dir %{_prefix}/lib/nspluginwrapper/i386
 %dir %{_prefix}/lib/nspluginwrapper/i386/linux
