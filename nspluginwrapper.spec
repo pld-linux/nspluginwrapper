@@ -48,6 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc ChangeLog NEWS README TODO
 %dir %{_prefix}/lib/nspluginwrapper
 %dir %{_prefix}/lib/nspluginwrapper/i386
 %dir %{_prefix}/lib/nspluginwrapper/i386/linux
