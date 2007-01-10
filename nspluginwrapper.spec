@@ -58,8 +58,14 @@ EOF
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+# uh.
+# first we call update-browser-plugins to make links to our browser dir
+# then we call nspluginwrapper -v -[ui] to create npwrapper.*.so plugins
+# then we call update-browser-plugins once again to create links to 64bit browser plugins dir
+
 %post
 umask 002
+%update_browser_plugins
 if [ "$1" = 1 ]; then
 	%{_bindir}/%{name} -v -a -i
 else
@@ -69,7 +75,7 @@ fi
 
 %preun
 if [ "$1" = 0 ]; then
-	umask 002
+	rm -f %{_browserpluginsdir}/npwrapper.*.so
 	%{_bindir}/%{name} -v -a -r
 	%update_browser_plugins
 fi
