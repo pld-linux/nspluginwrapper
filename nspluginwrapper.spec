@@ -4,14 +4,16 @@ Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
 Summary(pl):	Wtyczka Open Source dla kompatybilno¶ci z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
 Version:	0.9.91.2
-Release:	1
+Release:	1.1
 License:	GPL v2
 Group:		Applications/Multimedia
 Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	74e40fa501ded6f1670684b3e42464c7
 Patch0:		%{name}-plugindirs.patch
 URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
+# 32bit gcc-c++ and glibc-devel
 BuildRequires:	/usr/lib/libsupc++.a
+BuildRequires:	/usr/include/gnu/stubs-32.h
 BuildRequires:	gtk+2-devel
 BuildRequires:	rpmbuild(macros) >= 1.365
 Requires:	browser-plugins >= 2.0
@@ -47,8 +49,11 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_prefix}/lib/%{name}/plugins
 %browser_plugins_add_browser %{name} -p %{_prefix}/lib/%{name}/plugins -a i386 -b <<'EOF'
 # use 64bit version
+# mplayerplug-in
 mplayerplug-in*
 libcult3dplugin.so
+# java-sun
+libjavaplugin_oji.so
 EOF
 
 %{__make} install \
