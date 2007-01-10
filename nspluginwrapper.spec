@@ -4,13 +4,15 @@ Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
 Summary(pl):	Wtyczka Open Source dla kompatybilno¶ci z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
 Version:	0.9.91.2
-Release:	0.1
+Release:	0.2
 License:	GPL v2
 Group:		Applications/Multimedia
 Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	74e40fa501ded6f1670684b3e42464c7
 URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
 BuildRequires:	/usr/lib/libsupc++.a
+BuildRequires:	rpmbuild(macros) >= 1.357
+Requires:	browser-plugins >= 2.0
 BuildRequires:	gtk+2-devel
 #Requires:	qemu
 Requires:	linux32
@@ -43,12 +45,30 @@ rm -rf $RPM_BUILD_ROOT
 	DONT_STRIP=yes \
 	DESTDIR=$RPM_BUILD_ROOT
 
+mkdir -p $RPM_BUILD_ROOT%{_browserpluginsdir}
+ln -s %{_prefix}/lib/%{name}/%{_arch}/%{_os}/npwrapper.so $RPM_BUILD_ROOT%{_browserpluginsdir}/npwrapper.so
+
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%update_browser_plugins
+if [ "$1" = 1 ]; then
+	%{_bindir}/%{name} -v -a -i
+else
+	%{_bindir}/%{name} -v -a -u
+fi
+
+%preun
+if [ "$1" = 0 ]; then
+	%update_browser_plugins
+	%{_bindir}/%{name} -v -a -r
+fi
 
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog NEWS README TODO
+%attr(755,root,root) %{_browserpluginsdir}/npwrapper.so
 %dir %{_prefix}/lib/nspluginwrapper
 %dir %{_prefix}/lib/nspluginwrapper/i386
 %dir %{_prefix}/lib/nspluginwrapper/i386/linux
