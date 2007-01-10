@@ -53,9 +53,6 @@ install -d $RPM_BUILD_ROOT%{_prefix}/lib/%{name}/plugins
 # mplayerplug-in
 mplayerplug-in*
 
-# browser-plugin-java-sun
-libjavaplugin_oji.so
-
 # browser-plugin-helixplayer
 nphelix.*
 
