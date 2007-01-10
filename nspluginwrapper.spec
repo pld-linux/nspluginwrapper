@@ -4,11 +4,12 @@ Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
 Summary(pl):	Wtyczka Open Source dla kompatybilno¶ci z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
 Version:	0.9.91.2
-Release:	0.4
+Release:	0.5
 License:	GPL v2
 Group:		Applications/Multimedia
 Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	74e40fa501ded6f1670684b3e42464c7
+Patch0:		%{name}-plugindirs.patch
 URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
 BuildRequires:	/usr/lib/libsupc++.a
 BuildRequires:	gtk+2-devel
@@ -33,6 +34,7 @@ Flash z przegl±darkami Mozilla zbudowanymi na architekturê x86-64.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure \
