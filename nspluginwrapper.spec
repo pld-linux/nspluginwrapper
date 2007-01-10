@@ -56,10 +56,18 @@ mplayerplug-in*
 # browser-plugin-helixplayer
 nphelix.*
 
+# browser-plugin-gplflash
+libnpflash.so
+
+# browser-plugin-gpac
+nposmozilla.*
+
+# browser-plugin-djvulibre
+nsdejavu.so
+
 libcult3dplugin.so
 kaffeineplugin.so
 npfreewrl.so
-nsdejavu.so
 EOF
 
 %{__make} install \
