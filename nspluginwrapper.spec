@@ -10,6 +10,7 @@ Group:		Applications/Multimedia
 Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	74e40fa501ded6f1670684b3e42464c7
 URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
+BuildRequires:	/usr/lib/libsupc++.a
 BuildRequires:	gtk+2-devel
 #Requires:	qemu
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -46,9 +47,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %dir %{_prefix}/lib/nspluginwrapper
-%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/mkruntime
-%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/npviewer
+%dir %{_prefix}/lib/nspluginwrapper/i386
+%dir %{_prefix}/lib/nspluginwrapper/i386/linux
+%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/i386/linux/libxpcom.so
+%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/i386/linux/npviewer
+%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/i386/linux/npviewer.bin
+%dir %{_prefix}/lib/nspluginwrapper/noarch
+%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/noarch/mkruntime
+%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/noarch/npviewer
 %dir %{_prefix}/lib/nspluginwrapper/x86_64
-%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/npconfig
-%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/npviewer.bin
-%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/npwrapper.so
+%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/linux/npconfig
+%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/linux/npwrapper.so
