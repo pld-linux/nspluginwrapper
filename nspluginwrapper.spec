@@ -45,7 +45,11 @@ rm -rf $RPM_BUILD_ROOT
 
 # we pretend we're browser for x86 ;)
 install -d $RPM_BUILD_ROOT%{_prefix}/lib/%{name}/plugins
-%browser_plugins_add_browser %{name} -p %{_prefix}/lib/%{name}/plugins -a i386
+%browser_plugins_add_browser %{name} -p %{_prefix}/lib/%{name}/plugins -a i386 -b <<'EOF'
+# use 64bit version
+mplayerplug-in*
+libcult3dplugin.so
+EOF
 
 %{__make} install \
 	DONT_STRIP=yes \
