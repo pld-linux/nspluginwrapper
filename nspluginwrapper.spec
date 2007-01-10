@@ -4,7 +4,7 @@ Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
 Summary(pl):	Wtyczka Open Source dla kompatybilno¶ci z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
 Version:	0.9.91.2
-Release:	0.5
+Release:	0.7
 License:	GPL v2
 Group:		Applications/Multimedia
 Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
@@ -55,17 +55,19 @@ ln -s %{_prefix}/lib/%{name}/%{_arch}/%{_os}/npwrapper.so $RPM_BUILD_ROOT%{_brow
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%update_browser_plugins
+umask 002
 if [ "$1" = 1 ]; then
 	%{_bindir}/%{name} -v -a -i
 else
 	%{_bindir}/%{name} -v -a -u
 fi
+%update_browser_plugins
 
 %preun
 if [ "$1" = 0 ]; then
-	%update_browser_plugins
+	umask 002
 	%{_bindir}/%{name} -v -a -r
+	%update_browser_plugins
 fi
 
 %files
