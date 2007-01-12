@@ -14,7 +14,8 @@ URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
 # 32bit gcc-c++ and glibc-devel
 BuildRequires:	/usr/lib/libsupc++.a
 BuildRequires:	/usr/include/gnu/stubs-32.h
-BuildRequires:	gtk+2-devel
+BuildRequires:	gtk+2-devel >= 1:2.0
+BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.365
 Requires:	browser-plugins >= 2.0
 Requires:	linux32
@@ -83,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 # then we call update-browser-plugins once again to create links to 64bit browser plugins dir
 
 %post
-umask 002
+umask 022
 %update_browser_plugins
 if [ "$1" = 1 ]; then
 	%{_bindir}/%{name} -v -a -i
