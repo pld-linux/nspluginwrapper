@@ -15,8 +15,10 @@ URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
 BuildRequires:	/usr/lib/libsupc++.a
 BuildRequires:	/usr/include/gnu/stubs-32.h
 BuildRequires:	gtk+2-devel >= 1:2.0
+BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.365
+BuildRequires:	xorg-lib-libXt-devel
 Requires:	browser-plugins >= 2.0
 Requires:	linux32
 ExclusiveArch:	%{x8664}
