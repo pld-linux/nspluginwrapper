@@ -68,6 +68,9 @@ nposmozilla.*
 # browser-plugin-djvulibre
 nsdejavu.so
 
+# java-sun: libjavaplugin_oji.so is not a valid NPAPI plugin
+libjavaplugin_oji.so
+
 libcult3dplugin.so
 kaffeineplugin.so
 npfreewrl.so
