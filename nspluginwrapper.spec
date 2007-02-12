@@ -1,7 +1,7 @@
 # TODO
 # - create -plugin and -viewer packages (like upstream)
 Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
-Summary(pl.UTF-8):   Wtyczka Open Source dla kompatybilności z wtyczkami Netscape'a 4 (NPAPI)
+Summary(pl.UTF-8):	Wtyczka Open Source dla kompatybilności z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
 Version:	0.9.91.2
 Release:	1.4
