@@ -1,10 +1,10 @@
 # TODO
 # - create -plugin and -viewer packages (like upstream)
 Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
-Summary(pl.UTF-8):	Wtyczka Open Source dla kompatybilnoÅ›ci z wtyczkami Netscape'a 4 (NPAPI)
+Summary(pl):	Wtyczka Open Source dla kompatybilno¶ci z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
 Version:	0.9.91.2
-Release:	1.4
+Release:	2
 License:	GPL v2
 Group:		Applications/Multimedia
 Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
@@ -30,11 +30,11 @@ nspluginwrapper is an Open Source compatibility plugin for Netscape 4
 they were not built for. For example, you can use the Adobe Flash
 plugin with x86-64 compiled Mozilla browsers.
 
-%description -l pl.UTF-8
-nspluginwrapper to wtyczka Open Source dla kompatybilnoÅ›ci z wtyczkami
-Netscape'a 4 (NPAPI). Pozwala uÅ¼ywaÄ‡ wtyczek na platformach, dla
-ktÃ³rych nie zostaÅ‚y zbudowane. Na przykÅ‚ad moÅ¼na uÅ¼ywaÄ‡ wtyczki Adobe
-Flash z przeglÄ…darkami Mozilla zbudowanymi na architekturÄ™ x86-64.
+%description -l pl
+nspluginwrapper to wtyczka Open Source dla kompatybilno¶ci z wtyczkami
+Netscape'a 4 (NPAPI). Pozwala u¿ywaæ wtyczek na platformach, dla
+których nie zosta³y zbudowane. Na przyk³ad mo¿na u¿ywaæ wtyczki Adobe
+Flash z przegl±darkami Mozilla zbudowanymi na architekturê x86-64.
 
 %prep
 %setup -q
