@@ -3,17 +3,17 @@
 Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
 Summary(pl.UTF-8):	Wtyczka Open Source dla kompatybilności z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
-Version:	0.9.91.2
-Release:	1.4
+Version:	0.9.91.3
+Release:	0.1
 License:	GPL v2
 Group:		Applications/Multimedia
 Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	74e40fa501ded6f1670684b3e42464c7
+# Source0-md5:	0e047db84a979237fb28a9e8360890b0
 Patch0:		%{name}-plugindirs.patch
 URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
 # 32bit gcc-c++ and glibc-devel
-BuildRequires:	/usr/lib/libsupc++.a
 BuildRequires:	/usr/include/gnu/stubs-32.h
+BuildRequires:	/usr/lib/libsupc++.a
 BuildRequires:	gtk+2-devel >= 1:2.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
@@ -119,7 +119,7 @@ fi
 %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/noarch/mkruntime
 %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/noarch/npviewer
 %dir %{_prefix}/lib/nspluginwrapper/x86_64
-%dir %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/linux
+%dir %{_prefix}/lib/nspluginwrapper/x86_64/linux
 %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/linux/npconfig
 %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/linux/npwrapper.so
 
