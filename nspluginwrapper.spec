@@ -1,10 +1,8 @@
-# TODO
-# - create -plugin and -viewer packages (like upstream)
 Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
 Summary(pl.UTF-8):	Wtyczka Open Source dla kompatybilności z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
 Version:	0.9.91.3
-Release:	0.1
+Release:	1
 License:	GPL v2
 Group:		Applications/Multimedia
 Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
@@ -13,7 +11,7 @@ Patch0:		%{name}-plugindirs.patch
 URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
 # 32bit gcc-c++ and glibc-devel
 BuildRequires:	/usr/include/gnu/stubs-32.h
-BuildRequires:	/usr/lib/libsupc++.a
+BuildRequires:	gcc-c++32
 BuildRequires:	gtk+2-devel >= 1:2.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
