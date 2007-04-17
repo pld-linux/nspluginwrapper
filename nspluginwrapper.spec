@@ -91,6 +91,10 @@ umask 022
 %update_browser_plugins
 if [ "$1" = 1 ]; then
 	%{_bindir}/%{name} -v -a -i
+%banner -e %{name} <<EOF
+You should install 32bit alsa-lib if you want sound to work in flash player.
+
+EOF
 else
 	%{_bindir}/%{name} -v -a -u
 fi
