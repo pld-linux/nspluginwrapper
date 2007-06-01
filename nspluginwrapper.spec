@@ -9,9 +9,7 @@ Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%
 # Source0-md5:	76df5586c229844d28b5db40368e8912
 Patch0:		%{name}-plugindirs.patch
 URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
-# 32bit gcc-c++ and glibc-devel
-BuildRequires:	/usr/include/gnu/stubs-32.h
-BuildRequires:	gcc(multilib)
+BuildRequires:	gcc-c++-multilib
 BuildRequires:	gtk+2-devel >= 1:2.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
