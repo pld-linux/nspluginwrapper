@@ -1,3 +1,6 @@
+# TODO
+# - 'nspluginwrapper -v -a -i' should be ran when browser (firefox) is updated
+#   (and -u somewhy doesn't do a thing) otherwise plugins don't run
 Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
 Summary(pl.UTF-8):	Wtyczka Open Source dla kompatybilności z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
