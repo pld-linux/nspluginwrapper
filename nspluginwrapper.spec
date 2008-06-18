@@ -1,6 +1,12 @@
 # TODO
-# - 'nspluginwrapper -v -a -i' should be ran when browser (firefox) is updated
-#   (and -u somewhy doesn't do a thing) otherwise plugins don't run
+# - make it not to scan root user plugins:
+#  # /usr/bin/nspluginwrapper -v -a -i
+#  Auto-install plugins from /usr/lib/nspluginwrapper/plugins
+#  Looking for plugins in /usr/lib/nspluginwrapper/plugins
+#  Install plugin /usr/lib/nspluginwrapper/plugins/libflashplayer.so
+#    into /usr/lib64/browser-plugins/npwrapper.libflashplayer.so
+#  Auto-install plugins from /root/.mozilla/plugins
+#  Looking for plugins in /root/.mozilla/plugins
 Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
 Summary(pl.UTF-8):	Wtyczka Open Source dla kompatybilności z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
