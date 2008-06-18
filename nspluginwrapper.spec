@@ -24,7 +24,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.365
 BuildRequires:	xorg-lib-libXt-devel
-Requires:	browser-plugins >= 2.0
+Requires:	browser-plugins >= 3.0
 Requires:	linux32
 ExclusiveArch:	%{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -94,19 +94,11 @@ rm -rf $RPM_BUILD_ROOT
 # then we call update-browser-plugins once again to create links to 64bit browser plugins dir
 
 %post
-umask 022
-%update_browser_plugins
-if [ "$1" = 1 ]; then
-	%{_bindir}/%{name} -v -a -i
-else
-	%{_bindir}/%{name} -v -a -u
-fi
 %update_browser_plugins
 
 %preun
 if [ "$1" = 0 ]; then
 	rm -f %{_browserpluginsdir}/npwrapper.*.so
-	%{_bindir}/%{name} -v -a -r
 	%update_browser_plugins
 fi
 
