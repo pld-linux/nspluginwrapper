@@ -11,7 +11,7 @@ Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
 Summary(pl.UTF-8):	Wtyczka Open Source dla kompatybilności z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
 Version:	1.0.0
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/Multimedia
 Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
@@ -24,6 +24,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.365
 BuildRequires:	xorg-lib-libXt-devel
+BuildRequires:	xorg-proto-xextproto-devel
 Requires:	browser-plugins >= 3.0
 Requires:	linux32
 # to have sound in flash player install 32bit alsa-lib
