@@ -10,12 +10,12 @@
 Summary:	Open Source compatibility plugin for Netscape 4 (NPAPI) plugins
 Summary(pl.UTF-8):	Wtyczka Open Source dla kompatybilności z wtyczkami Netscape'a 4 (NPAPI)
 Name:		nspluginwrapper
-Version:	1.0.0
-Release:	4
+Version:	1.2.2
+Release:	1
 License:	GPL v2
 Group:		Applications/Multimedia
 Source0:	http://gwenole.beauchesne.info/projects/nspluginwrapper/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	054e6023c1080b850d72f6c76485003f
+# Source0-md5:	197e3439aa7136addb88972e48c2fe4a
 Patch0:		%{name}-plugindirs.patch
 URL:		http://gwenole.beauchesne.info/en/projects/nspluginwrapper
 BuildRequires:	gcc-c++-multilib
@@ -115,19 +115,22 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog NEWS README TODO
+%attr(755,root,root) %{_bindir}/nspluginplayer
 %attr(755,root,root) %{_bindir}/nspluginwrapper
 %dir %{_prefix}/lib/nspluginwrapper
 %dir %{_prefix}/lib/nspluginwrapper/i386
 %dir %{_prefix}/lib/nspluginwrapper/i386/linux
+%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/i386/linux/libnoxshm.so
 %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/i386/linux/libxpcom.so
 %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/i386/linux/npviewer
 %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/i386/linux/npviewer.bin
 %dir %{_prefix}/lib/nspluginwrapper/noarch
-%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/noarch/mkruntime
+#%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/noarch/mkruntime
 %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/noarch/npviewer
 %dir %{_prefix}/lib/nspluginwrapper/x86_64
 %dir %{_prefix}/lib/nspluginwrapper/x86_64/linux
 %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/linux/npconfig
+%attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/linux/npplayer
 %attr(755,root,root) %{_prefix}/lib/nspluginwrapper/x86_64/linux/npwrapper.so
 
 # you should put plugins here you want to be automatically used in 64bit browsers
