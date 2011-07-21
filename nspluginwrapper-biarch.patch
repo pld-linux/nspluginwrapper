@@ -1,0 +1,21 @@
+diff -ur nspluginwrapper-1.4.4/Makefile nspluginwrapper-1.4.4.new/Makefile
+--- nspluginwrapper-1.4.4/Makefile	2011-07-01 05:18:57.000000000 +0200
++++ nspluginwrapper-1.4.4.new/Makefile	2011-07-21 12:01:14.387367608 +0200
+@@ -37,7 +37,7 @@
+ libdl_LIBS = -ldl
+ endif
+ 
+-libpthread_LIBS = -lpthread
++libpthread_LIBS = -lpthread -ldl
+ ifeq ($(OS),dragonfly)
+ libpthread_LDFLAGS = -pthread
+ endif
+@@ -65,7 +65,7 @@
+ LSB_TOP_DIR = $(SRC_PATH)/lsb-build
+ LSB_INC_DIR = $(LSB_TOP_DIR)/headers
+ LSB_SRC_DIR = $(LSB_TOP_DIR)/stub_libs
+-LSB_OBJ_DIR = lsb-build-$(ARCH_32)
++LSB_OBJ_DIR = $(SRC_PATH)/lsb-build-$(ARCH_32)
+ LSB_CORE_STUBS = $(shell cat $(LSB_SRC_DIR)/core_filelist)
+ LSB_CORE_STATIC_STUBS = $(shell cat $(LSB_SRC_DIR)/core_static_filelist)
+ LSB_DESKTOP_STUBS = $(shell cat $(LSB_SRC_DIR)/desktop_filelist)
